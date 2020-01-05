@@ -1,24 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+
+import WithPersistentData from './components/MyComponent'
+
+// class MyComponent extends Component {
+//   render() {
+//     return <div>
+//       { this.props.data }
+//     </div>
+//   }
+// }
+
+// function MyComponent(props) {
+//   return <div>
+//     { props.data }
+//   </div>
+// }
+
+// const MyComponentWithPersistentData = withPersistentData(MyComponent)
+
+
+
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </header> */}
+      {/* <MyComponentWithPersistentData /> */}
+      <WithPersistentData />
     </div>
   );
 }

@@ -42,5 +42,56 @@ npx create-react-app demo;
 
  eg: 现在有一个组件myComponent，需要从本地存储中获取数据，然后渲染到界面， 
 
+function withPersistentData(WrappedComponent) {
+  return class extends Component {
+    componentWillMount() {
+      let data = localStorage.getItem('data', 'hello world');
+      this.setState({data});
+    }
 
+    render() {
+      // 通过 { ...this.props } 把传递给当前组件的属性 继续传递给被包装的组件
+      return <WrappedComponent data={this.state.data} {...this.props} />
+    }
+  }
+}
+
+function MyComponent(props) {
+  return <div>
+    { props.data }
+  </div>
+}
+
+const MyComponentWithPersistentData = withPersistentData(MyComponent)
+
+### eg:  withPersistentData就是一个高阶组件，它返回一个新的组件，在新的组件的componentWillMount中统一处理从localStroage中获取数据的逻辑，然后将获取到的数据通过props传递给被包装的组件WrappedComponent,这样WrappedComponent中就可以直接使用props.data获取需要展示的数据。当有其他组件也需要这段逻辑时候，继续使用withPersistentData这个高阶组件包装这些组件。本质是装饰者设计模式。
+
+# 高阶组件使用场景：
+1. 操作props
+2. 通过ref访问组件实例
+3. 组件状态提升
+4. 用其他元素包装组件。
+
+
+## 1. 在被包装组件接收props前，高阶组件可以先拦截到props，，对props执行增 删 改 等操作。
+
+## 2. 高阶组件通过ref获取包装组件实例的引用，然后高阶组件就具备了直接操作被包装组件的属性和方法的能里。
+
+## 3. 利用高阶组件将原本受控组件需要自己维护的状态统一提升到高阶组件中。
+
+## 4. 可以在高阶组件渲染WrappedComponent 时添加额外的元素，这种情况通常用户为WrappedComponent 增加布局或者修改样式。
+   
+   function withRedBackGround(WrappedComponent) {
+     return class extends React.component {
+       render() {
+         return (
+           <div style={{background: 'red'}}>
+              <WrappedComponent {...this.props}/> 
+           </div>
+         )
+       }
+     }
+   }
+   
+ 
 
