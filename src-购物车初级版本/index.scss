@@ -1,0 +1,123 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dialog {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left:0;
+  top:0;
+  .mask {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .6;
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .tip {
+    width: 61%;
+    height: 44%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    span {
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      background: #ccc;
+      border-radius: 4px;
+      margin: 5px;
+    }
+  }
+}
+
+.App {
+ width: 100%;
+ input {
+  width: 40px;
+  height: 40px;
+ }
+  ul {
+    width: 100%;
+    display: flex;
+    border-bottom:1px solid black;
+    .left {
+      flex:4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      input {
+        width: 40px;
+        height: 40px;
+      }
+      img {
+        width: 60%;
+        height: 90%;
+        margin: 10px; 
+      }
+    }
+    .right {
+      flex:6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;;
+      .right-name {
+        padding: 5px;
+        background: #ccc;
+        line-height: 60px;
+        text-align: center;
+        margin: 10px;
+        width: 200px;
+        border-radius: 10px;
+      }
+      .right-btn {
+        
+        span {
+          display: inline-block;
+          width: 65px;
+          height: 40px;
+          background: #ccc;
+          text-align: center;
+          line-height: 40px;
+          margin: 5px;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+
+  }
+  .total-box {
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    font-size: 25px;
+    background: #eee; 
+  }
+}
