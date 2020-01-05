@@ -2,7 +2,7 @@
 function add(x, y) {
   return x + y
 }
-// add(1, 2)   
+add(1, 2)   
 
 // Currying后
 function curryingAdd(x) {
