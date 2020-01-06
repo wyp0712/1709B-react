@@ -94,4 +94,23 @@ const MyComponentWithPersistentData = withPersistentData(MyComponent)
    }
    
  
+# es6 模块化： 
+  import '' from '';
 
+  export 这种抛出，必须采用同样的名字 结构引入 { name }； 如果非要换名字，就采用
+  import * as a from '';
+
+  export default '';
+  
+# 高阶组件：
+
+  1. 定义: 传入一个组件，并且返回一个组件，就是高阶组件
+  2. 好处: 复用 代码逻辑；
+  3. 柯里化的组件调用；(组件)(参数)
+
+
+  作业： 封装一个
+     input 受控组件：
+       1. value
+       2. onChange={}
+  
