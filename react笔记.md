@@ -114,3 +114,16 @@ const MyComponentWithPersistentData = withPersistentData(MyComponent)
        1. value
        2. onChange={}
   
+
+# 路由： 
+  yarn add react-router-dom
+
+  Switch  
+  Route 
+  
+  NavLink 
+  BrowerRouter 
+  
+
+
+  <router-view />

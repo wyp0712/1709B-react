@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.scss';
 import { BrowserRouter, Switch, Route, NavLink, Redirect } from 'react-router-dom'
 
 import Home from './views/Home'
@@ -27,17 +28,14 @@ class  App extends React.Component {
     return (
       <div className="App">
         <BrowserRouter>
-          <div className='nav-bar'>
-            <NavLink to='/home'>首页</NavLink> |
-            <NavLink to='/cart'>购物车</NavLink> |
-            <NavLink to='/detail'>详情页面</NavLink> |
-            <NavLink to='/login'>登陆</NavLink> 
-          </div> 
-
-         <div className='view-box'>
-
+         <NavLink to='/home'>首页</NavLink> |
+         <NavLink to='/cart'>购物车</NavLink> |
+         <NavLink to='/detail'>详情页面</NavLink> |
+         <NavLink to='/login'>登陆</NavLink> 
+         <div>
+           
            <Switch>
-              <Route exact path='/home' component={Home} />
+              <Route path='/home' component={Home} />
               <Route path='/cart' component={Cart} />
               <Route path='/detail' component={Detail} />
               <Route path='/login' component={Login} />
