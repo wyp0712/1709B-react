@@ -6,8 +6,6 @@ export default class componentName extends Component {
       <div>
         Detail
 
-        <button onClick={ () => { this.props.history.go(-1) } }>back</button>
-
         { console.log(this.props, '我是详情页面') }
       </div>
     )

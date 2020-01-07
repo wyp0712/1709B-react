@@ -4,8 +4,7 @@ export default class componentName extends Component {
   render() {
     return (
       <div>
-        购物车
-        { '我是cart页面:'+ console.log(this.props) }
+        登陆
       </div>
     )
   }
