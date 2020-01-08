@@ -116,14 +116,17 @@ const MyComponentWithPersistentData = withPersistentData(MyComponent)
   
 
 # 路由： 
+
+ ## 安装路由 
   yarn add react-router-dom
+ ## 配置页面
 
-  Switch  
-  Route 
-  
-  NavLink 
-  BrowerRouter 
-  
+ ## 配置文件 
+    config.js  []
+    index.js  RouterView
 
+ ## 循环路由 
 
-  <router-view />
+ ## 注意配置规则： 
+
+    每一级路由都有一个封装好的 RouterView 组件 
