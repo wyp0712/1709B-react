@@ -16,12 +16,12 @@ const MockData = Mock.mock({
 Mock.mock('/api/list', MockData)
 
 //  get 截取参数 详情接口
-// Mock.mock(/\/api\/detail\?./, function(options) {
-//   const id = options.url.split('?')[1].split('=')[1]
-//   return MockData.list.filter(val => { 
-//     return val.id == id;
-//   })
-// })
+Mock.mock(/\/api\/detail\?./, function(options) {
+  const id = options.url.split('?')[1].split('=')[1]
+  return MockData.list.filter(val => { 
+    return val.id == id;
+  })
+})
 
 // post 参数
 Mock.mock('/api/detail', 'post', function(opt) {
