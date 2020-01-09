@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class App extends Component {
   render() {
     const { inputValue, list, handleInputChange, handleBtnEvent, handleRemoveEvent } = this.props;
     return (
       <div>
-         <input  value={inputValue} onChange={ (e) => { handleInputChange(e) } }/>
+         <input  value={inputValue} 
+          onChange={ (e) => { handleInputChange(e) } } 
+         />
          <button onClick={ () => handleBtnEvent() }>提交</button>
         <ul>
           {
@@ -24,9 +26,10 @@ class App extends Component {
 
 // 获取数据来源 (找到数据并且把数据映射给props)
 const mapStateToProps = (state) => {
+  console.log(state, 'state-----state')
    return {
-     inputValue: state.inputValue,
-     list: state.list
+     inputValue: state.todo.inputValue,
+     list: state.todo.list
    }
 }
 
@@ -56,6 +59,5 @@ const mapActionToProps = (dispatch) => {
     }
   }
 }
-
 
 export default connect(mapStateToProps, mapActionToProps)(App)
