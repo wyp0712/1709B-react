@@ -14,7 +14,6 @@ export default (state = defaultState, action) => {
 
   if (action.type === 'add_list') {
     const list = [...newState.list, newState.inputValue];
-    // newState.list.push()
     newState.list = list;
     newState.inputValue = ''
   }

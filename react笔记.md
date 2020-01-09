@@ -130,3 +130,54 @@ const MyComponentWithPersistentData = withPersistentData(MyComponent)
  ## 注意配置规则： 
 
     每一级路由都有一个封装好的 RouterView 组件 
+
+
+# redux 
+  yarn add redux react-redux    
+
+
+# react-redux  yarn add redux react-redux    
+ ##  react-redux  介绍：
+  1. # 配合redux使用，
+  2. # 它是redux中间件，
+  3. # 作用：连接组件和store;
+### App.js
+
+ import { Provider } from 'react-redux';
+ import Todo from './todo'
+ import store from './store/index.js'
+
+ export default () => {
+   return <Provider  store={store}>  <Todo />   </Provider>
+ }
+
+
+### Todo.js
+ import { connect } from 'react-redux';
+ class Todo extends Component {
+   render() {
+     const {inputValue, changetInputValue } = this.props;
+     return <div></div>
+   }
+ }
+
+ const mapStateToProps = (state) => {
+   return {
+      inputValue: state.inputValue 
+   }
+ }
+
+ const mapActionToProps = (dispatch) => {
+   return {
+     changetInputValue() {
+       const action = {
+         type: 'init_change_input',
+         data
+       }
+       dispatch(action)
+     } 
+   }
+ }
+
+ export default  connect()()
+
