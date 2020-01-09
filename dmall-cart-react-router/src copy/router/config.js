@@ -1,43 +1,20 @@
-
 // 一级
-import Cart from '../views/Cart/Cart'
-import Home from '../views/Home/Home'
+import Home from '../views/Home/index'
+import Login from '../views/Login/index'
 import Detail from '../views/Detail/index'
 
 // 二级
-import HomeIndex from '../views/Home/pages/HomeIndex'
-import HomeCat from '../views/Home/pages/HomeCat'
-
-// 三级
-import CatTab1 from '../views/Home/pages/pages/cattab1'
-import CatTab2 from '../views/Home/pages/pages/cattab2'
-
-// 三级的重定向
-
-/**
- * 1. /    /cart
- * 
- * 2. /home  /home/index
- * 
- * 3. /home/cat   /home/cat/tab1
- */
+import HomeIndex from '../views/Home/HomeIndex/index'
+import HomeCart from '../views/Home/HomeCart/index'
 
 const routes = [
-   {
-     path: '/',
-     redirect: '/cart'
-   },
-   {
-     path: '/detail',
-     com: Detail
-   },
-   {
-     path: '/cart',
-     com: Cart
-   },
-   {
+  {
+    path: '/',
+    redirect: '/login'
+  },
+  {
     path: '/home',
-    com: Home,
+    component: Home,
     children: [
       {
         path: '/home',
@@ -45,27 +22,21 @@ const routes = [
       },
       {
         path: '/home/index',
-        com: HomeIndex
+        component: HomeIndex
       },
       {
-        path: '/home/cat',
-        com: HomeCat,
-        // children: [
-        //   {
-        //     path: '/home/cat',
-        //     redirect: '/home/cat/tab1'
-        //   },
-        //   {
-        //     path: '/home/cat/tab1',
-        //     com: CatTab1
-        //   },
-        //   {
-        //     path: '/home/cat/tab2',
-        //     com: CatTab2,
-        //   }
-        // ]
+        path: '/home/cart',
+        component: HomeCart
       }
     ]
+  },
+  {
+    path: '/login',
+    component: Login
+  },
+  {
+    path: '/detail',
+    component: Detail
   }
 ]
 

@@ -51,19 +51,17 @@ code {
     width: 30%;
     margin: 10px;
     li {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       span {
+       
         display: inline-block;
-        width: 30px;
-        height: 30px;
+        width: 100px;
+        height: 35px;
         text-align: center;
-        line-height: 30px;
+        line-height: 35px;
         background: #ccc;
-        margin: 2px;
+        margin: 5px;
         border-radius: 4px;
-        font-size: 15px;
+        font-size: 25px;
       }
       &:nth-child(1) {
         img {
