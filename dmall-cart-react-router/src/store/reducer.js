@@ -1,30 +1,27 @@
-
-const defaultState = {
-   initData: [],
-   cartData: []
+// 
+const defaultState = { // 数据仓库
+   inputValue: '',
+   list: []
 }
 
 export default (state = defaultState, action) => {
+  // 拷贝数据 修改数据（逻辑） 返回确定数据 
+  const newState = JSON.parse(JSON.stringify(state))
 
-  const newState = JSON.parse(JSON.stringify(JSON.parse(localStorage.getItem('cart')))) || JSON.parse(JSON.stringify(state))
-  if (action.type === 'init_cart_data') {
-    newState.initData = action.data
+  if (action.type === 'change_input_value') {
+     newState.inputValue = action.inputValue; 
   }
 
-  if (action.type === 'to_cart') {
-    newState.cartData = [...newState.cartData, action.item]
-    console.log(newState)
+  if (action.type === 'add_list') {
+    const list = [...newState.list, newState.inputValue];
+    // newState.list.push()
+    newState.list = list;
+    newState.inputValue = ''
   }
 
-  if (action.type === 'add_cart') {
-    newState.cartData[action.index].count++
+  if (action.type === 'remove_data') {
+    newState.list.splice(action.index, 1)
   }
-
-  if (action.type === 'remove_cart') {
-    newState.cartData[action.index].count--
-  }
-
-  localStorage.setItem('cart', JSON.stringify(newState))
 
   return newState;
 }
