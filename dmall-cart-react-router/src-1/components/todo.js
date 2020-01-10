@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios'
+
+const getData = (dispatch) => {
+  axios.get('/mock/data.json').then(res => {
+    const action = {
+      type: 'init_data',
+      list: res.data
+    }
+    console.log(res, 'res')
+    dispatch(action)
+  })
+}
+
 
 class App extends Component {
   render() {
     const { inputValue, list, handleInputChange, handleBtnEvent, handleRemoveEvent } = this.props;
     return (
       <div>
-         <input  value={inputValue} 
-          onChange={ (e) => { handleInputChange(e) } } 
-         />
-         <button onClick={ () => handleBtnEvent() }>提交</button>
+        <input  value={inputValue} 
+        onChange={ (e) => { handleInputChange(e) } } 
+        />
+        <button onClick={ () => handleBtnEvent() }>提交</button>
         <ul>
           {
             list.map((item,index) => {
@@ -22,11 +35,18 @@ class App extends Component {
       </div>
     )
   }
+
+
+
+  componentDidMount() {
+    this.props.getAjax()
+  }
 }
+
+
 
 // 获取数据来源 (找到数据并且把数据映射给props)
 const mapStateToProps = (state) => {
-  console.log(state, 'state-----state')
    return {
      inputValue: state.todo.inputValue,
      list: state.todo.list
@@ -36,6 +56,11 @@ const mapStateToProps = (state) => {
 // 用户提交action (找行为并且把行为映射给props)
 const mapActionToProps = (dispatch) => {
    return {
+    getAjax() {
+      const action = getData(dispatch)
+      console.log(action, 'action')
+      // dispatch(action)
+    }, 
     handleRemoveEvent(index) {
       const action = {
         type: 'remove_data',

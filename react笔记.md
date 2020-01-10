@@ -181,3 +181,18 @@ const MyComponentWithPersistentData = withPersistentData(MyComponent)
 
  export default  connect()()
 
+
+
+# redux 数据状态管理器
+ ## redux-thunk 让action可以提交异步函数
+ ## react-redux 让组件和redux的连接更方便
+
+  1. store
+  2. reducer
+     ### 拷贝数据 修改数据 返回确定数据
+  3. actionCreator
+     ### 将所有的文件提交给这个文件；   
+
+
+
+

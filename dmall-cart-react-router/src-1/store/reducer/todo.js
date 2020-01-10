@@ -5,9 +5,8 @@ const defaultState = { // 数据仓库
 }
 
 export default (state = defaultState, action) => {
- // 拷贝数据 修改数据（逻辑） 返回确定数据 
+ // 拷贝数据 修改数据（逻辑） 返回确定数据
  const newState = JSON.parse(JSON.stringify(state))
-
  if (action.type === 'change_input_value') {
     newState.inputValue = action.inputValue; 
  }

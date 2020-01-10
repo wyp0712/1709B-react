@@ -1,8 +1,11 @@
-import { createStore } from 'redux'
-import reducer from './reducer/index'
+import { createStore, applyMiddleware } from 'redux'
+import reducer from './reducer'
+// redux-thunk 可以让action提交异步函数
+import thunk from 'redux-thunk'
 
-
-// 管理员身份就创建成功了
-const store = createStore(reducer);
+const store = createStore(
+    reducer,
+    applyMiddleware(thunk) // 注册thunk中间件
+  )
 
 export default store;
