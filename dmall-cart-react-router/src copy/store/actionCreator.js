@@ -31,7 +31,6 @@ export const getRemoveCart = (index) => {
 
 export const getData = () => {
   return (dispatch) => {
-    // 初始数据
     axios.get('/api/cart').then(res => {
       const action = initCartData(res.data)
       dispatch(action)

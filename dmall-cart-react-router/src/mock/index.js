@@ -1,15 +1,33 @@
 import Mock from 'mockjs';
-const CartData = Mock.mock({
-  'list|10': [
-    { 
-      'id': '@id',
-      'name': '@ctitle(1)',
-      'img': '@image(100x200, @color, @city)',
-      'count': 0,
-      'price': '@integer(10,100)'
+
+const cityData = Mock.mock({
+  'guonei|10': [
+    {
+      'pro': [
+        {
+          'title': '@city',
+          'children|5': [ { city: '@city' } ]
+        }
+      ]
+    }
+  ],
+  'guoji|10': [
+    {
+      '美洲|5': [
+        {
+          'city': '@city'
+        }
+      ],
+      '澳洲|5': [
+        {
+          'city': '@city'
+        }
+      ]
     }
   ]
 })
 
+// console.log(cityData, 'cityData')
+
 // 购物车列表接口
-Mock.mock('/api/cart', CartData.list)
+Mock.mock('/api/city', cityData)

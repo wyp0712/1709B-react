@@ -25,65 +25,16 @@ html,body{
 .home-index {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  .home-header {
+  .nav-tab {
     width: 100%;
-    height: 45px;
+    height: 35px;
     display: flex;
-    background: #eee;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;  
-  }
-  .home-main{
-    width: 100%;
-    flex:1;
-    overflow: auto; 
-  }
-  .home-footer {
-    width: 100%;
-    height: 45px;
-    display: flex;
-    background: #eee;
-    display: flex;
-      a {
-        flex:1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-      .active {
-        color: lightcoral;
-      }
+    span {
+      flex:1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }  
   }
 }
 
-// app-home 
-.app-home {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  ul {
-     margin: 10px;
-     li {
-       span {
-         display: inline-block;
-         width: 35px;
-         height: 35px;
-         background: #ccc;
-         border-radius: 4px;
-         text-align: center;
-         line-height: 35px;
-         margin: 5px;
-       }
-       &:nth-child(1) {
-          img {
-            width: 100%;
-            height: 150px;
-          }
-       }
-     }
-  }
-}

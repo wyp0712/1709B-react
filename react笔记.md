@@ -196,3 +196,88 @@ const MyComponentWithPersistentData = withPersistentData(MyComponent)
 
 
 
+# react-create-app
+
+ ## 主入口文件： index.js 
+     渲染dom 挂载dom
+ ## App.js 视图入口文件：
+   react-redux  react-router-dom 
+
+  1. store  <Provider store={store}>  </Provider>   
+  2. 路由  BrowserRouter
+
+ ## views 视图组件(路由页面： 登陆 注册 首页 购物车)
+
+ ## components: 功能组件 （头 尾 swiper tab）
+ 
+ ## store 数据管理中心 （中介）
+    index.js 入口文件   （管理员角色）
+    reducer.js 书写逻辑（电脑角色）
+
+
+    组件内部开始运行： action提交 - store - reducer - store-
+    
+    actionCreator.js: 
+      import axios from 'axios';
+      import './mock/index.js';
+
+      export const getAdd = (index) => {
+         return {
+           type: 'add_cart',
+           index
+         }
+      }
+
+      export const initData = (data) => {
+        return {
+          type: 'init_data',
+          data
+        }
+      }
+
+      export const getData = () => {
+        return (dispatch) => {
+           axios.get('/api/list').then(res => {
+             const action = initData(res.data)
+             dispatch(action)
+           })  
+        }
+      }
+
+
+
+    各个文件直接的关系：
+
+    购物车.js
+    import { getAdd,getData } from '';
+
+    componentDidMount() {
+      this.props.initdata()
+    }
+      
+    const mapActionTopProps = (diapatch) => {
+      return {
+        add() {
+          const action = getAdd(index);
+          dispatch(action);
+        },
+        initdata() {
+          const action = getData()
+          dispatch(action)
+        }
+      }
+    }
+
+  ## redux  redux-thunk(异步函数提交) react-redux;  
+
+ ## mock 拦截ajax 生成随机数据
+    
+    const data = Mock.mock({
+      'list|10': [ {} ]
+    })
+
+   Mock.mock('/api/list', data)
+
+
+
+     
