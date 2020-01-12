@@ -5,10 +5,13 @@ class TodoList extends Component {
   render() {
     const { inputValue,list,removeItem, handleInputChange, handleBtnClick } = this.props
     return <Fragment> 
+
         <input value={inputValue} onChange={ (e) => handleInputChange(e) }/>
+        
         <button 
          onClick={ () => handleBtnClick() }
         >提交</button>
+
         <ul>
           {
             list.map((item, index) => {
@@ -18,6 +21,7 @@ class TodoList extends Component {
             })
           }
         </ul>
+        
        </Fragment>
   }
 }

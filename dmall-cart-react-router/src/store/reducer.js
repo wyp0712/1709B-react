@@ -16,8 +16,8 @@ export default (state = defaultState, action) => {
   if (action.type === 'add_list') {
       newState.list.push(newState.inputValue)
       newState.inputValue = ''
-      console.log(newState.list)
   }
+  
   if (action.type === 'remove_item') {
     newState.list.splice(action.index, 1);
   }
