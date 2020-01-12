@@ -1,20 +1,16 @@
 import React from 'react';
-// 路由引入文件
-import RouterView from './router/index'
-import config from './router/config'
-import { BrowserRouter } from 'react-router-dom'
-// redux 引入文件
+import TodoList from './components/TodoList'
+
+// 引入react-redux文件； 组件和redux连接
 import { Provider } from 'react-redux'
 import store from './store/index'
 
 const App = () => {
-  return <div className='App-wrapper'>
+  return (
     <Provider store={store}>
-      <BrowserRouter>
-        <RouterView routes={config}></RouterView>
-      </BrowserRouter>
+       <TodoList />
     </Provider>
-  </div>
+  )
 }
 
 export default App;

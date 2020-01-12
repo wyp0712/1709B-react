@@ -3,12 +3,11 @@ import Mock from 'mockjs';
 const cityData = Mock.mock({
   'guonei|10': [
     {
-      'pro': [
-        {
+      'pro': {
           'title': '@city',
           'children|5': [ { city: '@city' } ]
         }
-      ]
+      
     }
   ],
   'guoji|10': [

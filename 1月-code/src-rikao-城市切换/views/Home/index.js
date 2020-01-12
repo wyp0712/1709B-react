@@ -30,7 +30,7 @@ class HomeIndex extends Component {
               return <li 
               key={index}
                onClick={ () => handleClick(item) }
-              >{item.pro[0].title}</li>
+              >{item.pro.title}</li>
               })
             }
           </ul>
@@ -41,7 +41,7 @@ class HomeIndex extends Component {
   }
 
   componentDidMount() {
-    this.props.initCityData()
+    this.props.initCityData(this.props.handleClick)
 
 
   }
@@ -58,7 +58,7 @@ const mapStateToProps = (state) => {
 // 提交action 行为
 const mapActionToProps = (dispatch) => {
    return {
-      initCityData() {
+      initCityData(handleClick) {
         axios.get('/api/city').then(res => {
           // console.log(res, 'res') 
           // 获取到数据 提交给store 
@@ -66,14 +66,15 @@ const mapActionToProps = (dispatch) => {
             type: 'init_city_data',
             data: res.data
           }
+          handleClick(res.data.guonei[0])
           dispatch(action)
         })
       },
       handleClick(item) {
-        console.log(item.pro[0].children, 'item') 
+        console.log(item.pro, 'item') 
         const action = {
           type: 'add_to_right',
-          data: item.pro[0].children
+          data: item.pro.children
         }
         dispatch(action)
       }

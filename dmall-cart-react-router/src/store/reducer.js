@@ -1,21 +1,25 @@
 
 const defaultState = {
-   cityData: [],
-   rightArr: []
+  inputValue: '',
+  list: []
 }
 
 export default (state = defaultState, action) => {
-  // 1. 拷贝数据 2. 修改数据 3. 返回确定数据
+  // 拷贝数据 修改数据  返回确定数据
   const newState = JSON.parse(JSON.stringify(state));
-  
-  if (action.type === 'init_city_data') {
-     newState.cityData = action.data;
-    //  console.log(newState, 'newState')
+   
+  // 
+  if (action.type === 'input_change') {
+    newState.inputValue = action.value;
   }
 
-  if (action.type === 'add_to_right') {
-     newState.rightArr = action.data
+  if (action.type === 'add_list') {
+      newState.list.push(newState.inputValue)
+      newState.inputValue = ''
+      console.log(newState.list)
   }
-
-  return newState
+  if (action.type === 'remove_item') {
+    newState.list.splice(action.index, 1);
+  }
+  return newState;
 }
